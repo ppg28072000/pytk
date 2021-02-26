@@ -1,6 +1,6 @@
 from tkinter import *
 def main():
-    result = '';
+    result = "NULL";
     def closest_prime(num):
         #checking above
         numU = num;
@@ -24,16 +24,21 @@ def main():
                 flag =0;
                 return 1;
         return 0;
-    def check_prime(event=0):
+    def show_form():
+        timevar = IntVar();
+        entry = Frame(slots,borderwidth = "6",width = "300",height = "300");
+        entry.pack(side=LEFT,padx = 6);
+        title = Label(entry,text = "Title",bg ="gray71",font="Helvatica 8 bold");
+        title.pack(side = TOP,pady = 6,anchor = "n",fill = "y");
+        time =Label(entry,text = "Time",bg ="gray71",font="Helvatica 8 bold");
+        time.pack(side = LEFT,pady = 6);
+        timEnt = Entry(entry,textvariable = timevar);
+        timEnt.pack(side = LEFT);
+        #sub = Button(entry,text = "submit",fg = "red",command = )
+        
+    def check_prime(event=0):		
         global result
         num = number.get();
-##        if(f.get()>0):
-##            main();
-##            outFrame.forget();
-##            f.set(0);
-##        if(f.get()==
-##        outFrame = Frame(root,bg = "#b20022",borderwidth = "6", relief = SUNKEN,width="300");
-##        outFrame.pack(side = TOP,fill="x")
         flag = 1;
         i = 2;
         result = "UTTAMAM tava etat ankah abhaajya asti"
@@ -45,6 +50,9 @@ def main():
                 A = closest_prime(num);
                 result = "NAA etat ankah abhaajya naasti |\n kripayaa anya anken punahah prayasa karatu | Etat anke sameepau dvi ankah : "+str(A[0])+" and "+str(A[1]);
         output.config(text = result);
+
+    
+    
     root = Tk()
     root.geometry("744x344");
     f=IntVar(root,value = 0);
@@ -65,8 +73,14 @@ def main():
     output = Label(outFrame,text = result,font="Helvatica 12 bold",fg="blue");
     output.pack();
     # tic tac toe
-	schedFrame = Frame(root,bg = "#b10000",borderwidth = "6", relief = SUNEKN, height = "400");
-	schedFrame.pack(side = LEFT, fill = "x");
+    schdFrame = Frame(root,bg = "yellow",borderwidth = "6", relief = SUNKEN, width = "300",height = "400");
+    schdFrame.pack(side = TOP, fill = "x");
+    ttinfo = Label(schdFrame,text = "tava samayasaarini atra likhatu", font = "Helvatica 10 bold");
+    ttinfo.pack();
+    add = Button(schdFrame,text = "Add an entry",command = show_form,borderwidth = "6", relief = SUNKEN,font = "Helvatica 8 bold");
+    add.pack(side = LEFT);
+    slots = Frame(schdFrame,bg = "tomato",borderwidth = "7",relief = SUNKEN, width = "100",height = "400");
+    slots.pack(side = LEFT);
     root.bind("<Return>",check_prime);
     #root.bind("<Button-1>",check_prime);
     root.mainloop()
